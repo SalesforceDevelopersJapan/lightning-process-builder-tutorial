@@ -1,61 +1,60 @@
 ---
 layout: module
-title: Module 7&#58; Test in Mobile 
+title: モジュール 7&#58; モバイルでテスト
 ---
 
-In this module, you test the new, active process in the mobile environment. This is useful when building mobile apps in salesforce production and test environments, as it allows you to see the mobile experience that your end users will have. For this example you can either use the Chrome desktop browser on your computer in a mobile view, or you can use the Salesforce1 Mobile app in your smartphone. Instructions will be provided for testing in the Chome Mobile view. 
+このモジュールでは, モバイル環境で有効なプロセスをテストします。Salesforceの本番及びテスト環境で開発したモバイルアプリケーションがエンドユーザの実際のモバイル画面でどのようなユーザ体験を提供するかを確認するのは重要です。コンピュータ上のChrome デスクトップブラウザのモバイルビューもしくは、スマートフォン上のSalesforce1モバイル・アプリのどちらでも利用できますが、ここでは Chromeのモバイルビューを使った方法を紹介します。
 
-If you are unable to use Chrome or access the Salesforce1 Mobile app on a smartphone or mobile device, the review can be conducted entirely in the desktop view beginning on the Chatter tab with the **New Trip** Action. 
-
-
-
-## What you will learn
-
-- How to test salesforce development for mobile users using either the Chrome browser or the Salesforce1 Mobile App. 
+もしChromeを使えない環境であったり、スマートフォンやモバイルデバイスからからSalesforce1モバイル・アプリへアクセスできない場合には、レビューはデスクトップ用の画面からでも、Chatterタブの**新規出張** アクションで実施することが可能です。
 
 
 
-## Step 1: Switch to Chrome Mobile View
+## 何を学ぶことができるか
+- Salesforceの開発において、ChromeブラウザやSalesforce1アプリを利用してどのようにモバイルのテストを行うか。
 
-1. If you are not already, login to your salesforce environment in the Chrome browser. Take a look at the URL address in the browser. 
-2. Add /one/one.app to the end of your URL of the domain your Salesforce instance is on. If your Developer Edition is located on na15, meaning when you log in you URL looks something like https://na15.salesforce.com/home/home.jsp. To navigate to the Salesforce1 mobile app view, change the /home/home.jsp to /one/one.app. 
+## ステップ 1: Chromeモバイルビューへ変更する
+
+1. もしSalesforce環境にログインしていなければ、Choromeブラウザでログインを行います。ブラウザのURLアドレスバーに入力を行います。
+2. /one/one.app を現在のSalesforceインスタンスのURLドメインの後ろに追加します。例えばDeveloper Editionがna15にある場合、ログインした際のURLは https://na15.salesforce.com/home/home.jsp　のようになっています。 Salesforce1モバイルアプリの画面を表示するには /home/home.jsp を /one/one.app に変更します。
 ![](images/url.jpg)
-Your screen will now show the Salesforce mobile view. 
+Your screen will now show the Salesforce mobile view.
 ![](images/mobile1.jpg)
 
 
-3. You can resize your browser window now to a smaller size, more similar to a mobile screen. 
+3. ブラウザウィンドをリサイズして、モバイルのスクリーンに近いサイズに変更します。
 ![](images/screen1.jpg)
 
-## Step 2: Create new Trip Request
-When we setup our environment, we added a custom action for new trip request to the global layout. This allows all our mobile users to have access to this action from their mobile screen. We will now use this action to create a new trip request and test our new Lightning Process. 
+## ステップ 2: 新しい出張申請を作成する
+環境をセットアップした際に、グローバルレイアウトに出張申請用の新しいカスタムアクションを追加しました。 これは全てのモバイルユーザが、それぞれのモバイルスクリーンからアクセス可能となっています。新しい出張申請をアクションを通じて行い、作成したLightningプロセスをテストします。
 
-1. In the bottom of your mobile view, there is an action bar containing the icons for your mobile actions. Select the helicopter icon for the **New Trip** action. 
+1. モバイル画面の下部に、アイコンが並んでいるアクションバーがあります。ヘリコプターアイコンの**新規出張** アクションを選択します。
 ![](images/mobile3.jpg)
 
-2. Create your new trip record. Let's call this trip **San Diego Conference**, and select dates within a few days of today (This will make it easier to check the calendar update action), the cost is $1000 and the location is San Diego. 
+2. 新しい出張レコードを作成します。出張名を **サンディエゴカンファレンス** とし、, 日程を本日から数日後に設定し (これは後ほど行動の更新アクションを確認しやすくなります)、 コストを $1000 とし、場所をSan Diegoとします。
 ![](images/mobile4.jpg)
-3. Select **Save**
+3. **保存**を選択します。
 
 
 
-## Step 3: Review Process Results 
-Now that you have created your trip record, click around your mobile environment and test the results! 
+## ステップ 3: プロセスの結果を確認する
+承認リクエストレコードが作成されたので、モバイル環境から結果を確認してみましょう。
 
 
-1. Check your user chatter feed
-
+1. ユーザのChatterフィードを確認する
 ![](images/chatter1.jpg)
-2. Check your calendar update action by navigating to the left navigation of your mobile view
+2. モバイル画面の左側ナビゲーションからカレンダーの更新アクションを確認します
 ![](images/chatter2.jpg)
-3. Then select **Events** Click on the calendar days you populated in your trip request record and confirm the new event records have been created and the calendar is updated. 
+
+3. **行動** をクリックし、カレンダーの日程の中から出張リクエストを作成した日付にレコードが作成及び更新が行われていることを確認します。
 ![](images/mobile5.jpg)
-4. Check the approval status on the trip request action by navigating to the left navigation of your mobile view, selecting **Show More** and selecting **Trip Requests**. 
-5. Click into the San Diego record you just created, then click into the **Related** tab of this record, and then  **Approval History** to view the current approval status for this record. 
+
+4. モバイル画面の左側ナビゲーションの承認リクエスト上にある承認ステータスを確認します。**表示件数** をクリックし、**出張リクエスト**を選択します。
+
+5. 先ほど作成したサンディエゴのレコードをクリックし、レコードの **関連** タブをタップします。そして  **承認履歴** を確認しこのレコードの現在の承認ステータスを確認します。
 
 
 
-Congratulations! In just a few minutes you created a Lightning Process in Salesforce, added multiple actions, and tested for mobile users, all without a single line of code!
+おめでとうございます! たった数分でSalesforceに一行もコードを書くことなく、複数のアクションを持ち、かつモバイルユーザ向けにテスト済みの Lightning プロセスを作成することができあｍした。
 
 
 
@@ -64,7 +63,7 @@ Congratulations! In just a few minutes you created a Lightning Process in Salesf
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-searchbar-component.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="next.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="create-searchbar-component.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="next.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

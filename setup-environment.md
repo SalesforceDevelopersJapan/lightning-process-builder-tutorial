@@ -14,81 +14,83 @@ title: モジュール 2&#58; 環境のセットアップ
 
 ## ステップ 1: AppExchange パッケージのインストール
 
-The <a href="https://appexchange.salesforce.com/" target="_blank">AppExchange</a> is the world's first on-demand application-sharing service. It provides a way to browse, test drive, share, and install applications developed on Salesforce's on-demand AppExchange platform.
+<a href="https://appexchange.salesforce.com/" target="_blank">AppExchange</a> は世界初のオンデマンドのアプリケーション共有サービスです。AppExchange上で提供されているSalesforceアプリケーションの閲覧、テスト実行、共有そしてインストールが可能となっています。
 
-Partners, developers, and anyone else who chooses to participate can offer their Apps on the AppExchange directory. This directory gives Salesforce users an easy way to find and install applications to expand their use of the AppExchange platform to new areas of customer relationship management (CRM) and beyond.
-The app we are installing today is a private listing, private listings have not undergone the Salesforce security review process and should be installed only from trusted providers.  More information about installing packages in Salesforce can be found <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=distribution_installing_packages.htm" target="_blank">here</a>
+パートナー及び開発者だけでなく、全てのユーザがアプリケーションをAppExahngeディレクトリへ掲載することができます。このディレクトリはSalesforceユーザが欲しいアプリケーションをを容易に探しだすことができ、顧客管理(CRM）の枠を超えてアプリケーションを拡張することが可能となっています。またアプリケーションはプライベート掲載も可能となっており、プライベート掲載の場合にはSalesforceによるセキュリティレビューが行われません。
+  そのため、プライベート掲載のアプリケーションは信頼できるパートナーからのみインストールすることを推奨しています。
+Salesforceへのパッケージのインストールに関するより詳細な情報は<a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=distribution_installing_packages.htm" target="_blank">こちら</a>をご覧ください。
 
-*Note: To install Apps from Appexchange you need to have the User Permission of “Download AppExchange Packages”.  System administrators have this permission enabled by default, but if other users would like to install packages they may need to contact the system administrator for their org.*
+*注意: Appexchangeからアプリケーションをインストールするためには、ユーザーは “AppExchangeパッケージのダウンロード”権限が必要となります。システム管理者はでふぉるとでこの権現が有効になっていますが、他のユーザがパッケージをインストールしたい場合には、組織の管理者に確認する必要があります。*
 
-1. Login to your Salesforce Developer Edition
+1. Salesforce Developer Editionへログインします
 
-2. Copy and Paste this URL into the address bar of the browser **http://bit.ly/TripApprovalPackage**
+2. 次のURLをブラウザのアドレスバーにコピー & ペーストします **http://bit.ly/TripApprovalPackage**
 
-3. This screen will display all the components contained in this package that will be installed into your environment. Take a moment to read the types and names of elements being installed, this information can always be revisited for installed packages by navigating to **Setup|Installed Packages and viewing the details for a specific package.  
-*Some package items, such as validation rules, record types, or custom settings might not appear in the Package Components list but are included in the package and installed with the other items. If there are no items in the Package Components list, the package might contain only minor changes.*
+3. スクリーンには、パッケージに含まれておりこれからインストールされる予定の全てのコンポーネントが表示されます。この情報は後からでも **設定 | インストール済みパッケージ** から、パッケージごとにいつでも確認することができます。
+*検証ルールやレコードタイプ、カスタム設定などはパッケージコンポーネントリストへ掲載されない場合がありますが、他のアイテムがインストールされる際に付随して追加される可能性があります。パッケージコンポーネントになにもない場合でも。パッケージは軽微な変更を行う可能性があります。*
 ![](images/package2.jpg)
 
-4. Select **Continue**
+4.  **次へ** をクリックします
 ![](images/package1.jpg)
 
-5. Select **Next** on the screen for **Approve Package API Access**
+5. **パッケージ API アクセスの承認** 画面で　**次へ**　をクリックします
 
-6. Select **Grant access to all users** and select **Next**
+6. **すべてのユーザへのアクセス権の付与** を選択し、 **次へ** をクリックします
 ![](images/package3.jpg)
-For this exercise we will allow full app access to all users. In a production environment it is recommended for most packages that you install packages using the **Select Security Settings** option in order to control security settings by profile.
+このチュートリアルでは、全てのユーザにフルのアクセス権限を付与します。実際の運用環境では通常パッケージのインストールの際には **セキュリティ設定の選択** を使用し、プロファイルごとのセキュリティオプションをコントロールすることを推奨します。
 
-7. Select **Install**
+7. **インストール**　を選択します。
 
-8. The Install Complete screen will show.
+8. インストールが完了の画面が表示されます。
 ![](images/package4.jpg)
 
 
-## Step 2: Modifying the Global layout
-Our process will automate business steps once a user has submitted a trip request. In order to make this process easy for our mobile users, we are going to modify the Actions available on the Salesforce1 Mobile app to include **New Trip**
+## ステップ 2: グローバルレイアウトの編集
+ビジネスプロセスはユーザが出張申請を登録したタイミングで自動的に実行されます。モバイルユーザにもこのプロセスを簡単に利用できるようにするには、Salesforce1モバイル・アプリの有効なアクションに**新規出張**を追加する必要があります。
 
-1. Navigate to **Setup | Create | Global Actions | Publisher Layouts**
-2. Select **Edit** next to the Global Layout
+1. **設定 | 作成 | グローバルアクション | パブリッシャーレイアウト**
+2. グローバルレイアウトの **編集** をクリックします。
 ![](images/layout1.jpg)
-3. Drag the **New Trip** Action onto the layout field, immediately after **post**
+3. **新規出張** アクションをレイアウトの **投稿** のすぐ後にドラッグします。
 ![](images/layout2.jpg)
-4. Select **Save**
+4. **保存** を選択します
 
-## Step 3: Create User
+## ステップ 3: ユーザの作成
 In order to have an approval process, we will need a user to designate as the approver.
 
-1. **Setup | Manage User | New User**
-2. Create a new User for **Jennifer Manager**
+1. **設定 | ユーザの管理 | 新規ユーザ**
+2. **Jennifer Manager** というユーザを新しく作成します。
 
 ![](images/user.jpg)
-3. Select **Save**
+3. **保存** を選択します
 
 
-## Step 4: Create Approval Process
-In the Lightning Process Builder you can either use a default approval process, or specify an existing process you would like to trigger as part of a process action. Many of our users have existing approval processes in place, and for this tutorial we will show how you can tie a Process to an existing Approval Process. To do this we need to create our approval process for Trip Requests.
+## ステップ 4: 承認プロセスの作成
+Lightning プロセスビルダーでは通常のプロセスの実施か、既存のプロセスをトリガとしたアクションの一部としての動作か、どちらにも対応しています。多くのユーザは既存の承認プロセスが既にあるので、このチュートリアルでは、既存のプロセスとの統合方法を見ていきます。そのため、出張申請の承認プロセスを作成する必要があります。
 
 
-1. Navigate to ** Setup | Create | Workflow & Approvals | Approval Processes **
-1. In the drop down "Manage Approval Processes For" Select **Trip Request**
-1. Select **Create New Approval Process | Use Jump Start Wizard**
-1. Fill out the new approval process per the image below.
-- Name: Trip Approval Rule
-- Add the Approval History related list to all Trip Request page layouts: Checked
-- Expected Total Cost is greater than 500
-- Automatically Assign to **Jennifer Manager** for approver
+1. ** 設定 | 作成 | ワークフローと承認申請 | 承認プロセス ** へアクセスします
+1. "承認プロセスを管理するオブジェクト" で **承認申請** を選択します。
+1. **承認プロセスの新規作成 | ジャンプスタートウィザードを使用** を選択します
+1. 以下のように新しい承認プロセスを入力します。
+- 名前: 出張承認ルール
+- 一意の名前: Trip_Approval_Rule
+- 承認履歴関連リストをすべての出張申請ページレイアウトに追加する: チェックする
+- 想定総費用 <= 500
+- 自動的に承認者に割り当てる、で **Jennifer Manager** を承認者に追加
 ![](images/approval1.jpg)
-1. Select **Save**
-1. Select **View Approval Process Detail Page**
-1. On your approval process view select **Activate**
-1. Select **Ok**
+1. **保存** を選択します。
+1. **承認プロセス詳細ページを見る**　を選択します。
+1. 承認プロセス画面で　**有効化**　をクリックします。
+1. **Ok**　を選択します。
 
 
-You just installed an umanaged package into your test environmentand modified the mobile action layout! Now we can build a process using this existing package to further automate the business process.
+これで非管理パッケージを環境にインストールし、モバイルアクションレイアウトの編集が完了しました。この既存のパッケージを使って更にビジネスプロセスを自動化していきます。
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-developer-edition.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="create-developer-edition.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
 <a href="create-apex-controller.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

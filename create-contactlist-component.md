@@ -1,68 +1,70 @@
 ---
 layout: module
-title: Module 5&#58; Add Process Actions
+title: モジュール 5&#58; プロセスアクションの追加
 ---
 
-In this module, we will add actions to our the process. Using the Lightning Process Builder we have the ability to add either immediate or scheduled actions which will execute when the criteria we defined in the previous module evaluates to true. For this tutorial we will create a series of immediate actions. We will be creating 3 actions. Post to Chatter, Create a Record, and Submit for Approval. Without the Lightning Process Builder it would require code to create new related or unrelated records 
+このモジュールでは、プロセスへアクションを追加します。Lightning プロセスビルダーを使えば、即時、もしくはスケジュールされたアクションを、前のモジュールで定義した条件の評価に合致した際に実行できます。 このチュートリアルでは、即時実行のアクションを作成します。ここでは3つの Chatterに投稿、レコードを作成、, 承認申請のアクションを作成していきます。Lightning プロセスビルダーを使わない場合は、新規レコードの作成や関連しないレコードへのアクセスには、コーディングを必要とします。
 
 
 
-## What you will learn
-- How to add immediate actions to the process builder
+## 何を学ぶことができるか
+- プロセスビルダーで即時実行アクションを追加する方法
 
 
-## Step 1: Add a Chatter Post action 
-One of our business requirements is to notify the other travelers in the company about a new trip. We are going to post a notification to the travelers Chatter timeline including details about their trip, as well as a topic hashtag. You can also use Chatter post actions to 
+## ステップ 1: Chatterに投稿アクションを追加
+１つのビジネス要件には、他の従業員などに対して、出張を通知することがあります。Chatterに投稿アクションを使って出張者のChatterタイムラインに対して、出張の詳細にトピックやハッシュタグを加えて、通知を出すようにします。
 
-1. In the Immediate Actions element directly to the right of the criteria you just created, Select **Add Action**
+1. 作成した条件のすぐ右側にあるルール適用時のアクションエレメントで、**アクションを追加**　を選択します。
 
  ![](images/action1.jpg)
 
-2. For the Action Type we will select **Post to Chatter**. 
-*Notice the variety of action types you can create here.*
+2. アクション種別には**Chatterに投稿**を選択します。
+*ここでは様々なタイプのアクションを作成できます*
 ![](images/action2.jpg)
 
-3. Name this action **Chatter Travel Update**
-1. We want this chatter post to update to the chatter feed of the traveler on this trip, so we will select Post To: **User** , Select a user from a record, and select the record creator User ID. 
+3. アクション名には **Chatter出張更新**を入力します
+1. Chatterポストを出張者のフィードに投稿したいので、ここでは投稿先には: **ユーザ** を選択し、レコードからユーザを選択 ,  作成者のユーザIDを選択します。
 ![](images/action3.jpg)
-1. Now that you have defined where the chatter update will post, add text and information to the post. Use the **Insert Field** area in the message box to include merge fields from the record like Location and Trip Start. 
+4. これでどこにChatterの更新が投稿されるかが定義できましたので、テキスト情報を投稿に定義します。メッセージボックスの **項目の挿入** エリアには、場所や日程など、レコードデータから入力できるフィールドが用意されています。
 text
-```Travel Update! I will be traveling to {![Trip_Request__c].Location__c}  on {![Trip_Request__c].Trip_Start__c}  , let me know if you have any tips about this location! #travel```
+```出張申請! {![Trip_Request__c].Location__c} へ {![Trip_Request__c].Trip_Start__c} に出張する予定です。もしこの場所の耳寄りな情報をお持ちの方がいたらぜひ教えて下さい! #travel```
 
-![](images/action4.jpg) 
-
-
-1. Click **Save**
+![](images/action4.jpg)
 
 
+1. **保存** をクリックします。
 
 
-## Step 2: Add an Record Creation Action 
-Another business requirement was to automatically update the Salesforce calendar of the traveler. This calendar is populated using a standard object for Events, so we will want to create a new event record with dates and information that corresponds to the Trip Request that was created. Using the Lightning Process Builder we can create entirely new records, of custom or standard objects, related or unrelated to the primary process object. Related would mean that there were lookup fields or relationships connecting the objects, such as the Account field on the Contact object. This means those objects are related in salesforce. For this step we will be creating a new **Event** record, which is not related to the Trip Request custom object. We will create a new record as well as populate fields on that record based on information in the Trip Request record. 
 
-1. In the same Immediate Actions node where you added the previous action, click on **Add Action**
-2. Select **Create Record**
-3. Name this action "Create Travel Event"
-3. All custom and standard objects are available to select. Select **Event** object
-4. In order to populate the fields on this new record with information from the Trip Request record, we will use the lookup features in the Process Builder. Select the **Edit** icon in the left side of the Value cell in order to switch to the lookup function.  
+
+## ステップ 2: レコードを作成アクションの追加
+その他のビジネス要件として、出張者のカレンダーを自動的に更新することがあります。このカレンダーは標準オブジェクトである行動を利用して作られているので、出張申請レコードに入力された日程を利用して新しい行動レコードを作成したいと思います。Lightningプロセスビルダーでは、ターゲットオブジェクトに関連するしないに関わらず、全くの新規のレコードの作成を標準及びカスタムオブジェクトに対して行うことが可能です。
+関連するとは取引先項目が取引先責任者にあるように、参照関係や主従関係がオブジェクトにある状態の事をさします。これをSalesforceではこれらのオブジェクトは関連していると定義しています。このステップでは**行動**レコードを作成しようとしていますが、出張申請オブジェクトとは関連を持っていません。
+しかし新しいレコードを作成するだけでなく、出張申請レコードから基準となる項目を利用することも可能です。
+
+1. 前回アクションを追加したのと同じルール適用時のアクションノードで **アクションの追加** を選択します
+2. **レコードを作成** を選択します
+3. アクション名に "出張の行動を作成"と入力します
+3. 全ての標準及びカスタムオブジェクトが選択リスト内で有効となっています。 **行動** オブジェクトを選択します。
+4. 新しいレコードの項目と出張申請レコードからの情報を入力する行が並んでおり、プロセスビルダーのルックアップ機能を使うことができます。値列の左側の **編集** アイコンをクリックしてルックアップ機能と切り替えることができます。
 ![](images/action5.jpg)
-1.Then select the arrow on the right side of the cell to open up the lookup screen.
-![](images/action6.jpg) 
-1. Assign values for the new event record based on below screenshot. For the Subject Field do not select a lookup option, instead type in "Travel" to assign this as the subject field for all records created with this action. 
-![](images/action7.jpg) 
-1. Select **Save**
+1.その時、右側の矢印を選択することによって、ルックアップ画面が開きます。
+![](images/action6.jpg)
+1. 新しい行動レコードの値を、下記に基づいて入力します。件名項目にはルックアップは使用せずに、代わりに"出張" を設定すると、全てのレコードはこの件名で作成されます。
+![](images/action7.jpg)
+1. **保存** をクリックします。
 
 
 
 
-## Step 3: Add an Approval Action  
-Our final and most important business requirement is to submit the new Trip Request for Approval. Using the Lighting Process Builder you can either trigger an existing approval process built using approvals, or you can select Default approval process and rely on the system approver fields. For this exercise we have an existing approval process built that we will select. 
+## ステップ 3: 承認申請アクションを追加
+最後でそして最も重要なビジネス要件はこの出張申請で承認プロセスを実行することです。Lighting プロセスビルダーを使えば、既存の承認プロセスをトリガすることも、システムの承認者フィールドに依存した標準承認プロセスを選択することも可能です。この演習では先ほど作成した既存の承認プロセスを選択します。
 
-1. Click on **Add Action**
-2. Action Type **Submit for Approval**
-1. Select the **Specific approval process** already built called **Trip Approval Rule**
-![](images/approval2.jpg) 
-1. **Save**
+1. **アクションを追加**をクリックします。
+2. アクション種別 **承認申請**
+3. **特定の承認プロセス** を選択し、**出張承認ルール**を入力します
+![](images/approval2.jpg)
+4. **保存**　をクリックします。
 
 
 
@@ -71,7 +73,7 @@ Our final and most important business requirement is to submit the new Trip Requ
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-lightning-application.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="create-searchbar-component.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="create-lightning-application.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="create-searchbar-component.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

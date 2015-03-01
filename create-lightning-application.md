@@ -1,50 +1,52 @@
 ---
 layout: module
-title: Module 4&#58; Add Process Object and Criteria
+title: モジュール 4&#58; プロセスのオブジェクト及び条件を追加
 ---
 
-The process exists, but there is not criteria detailing when and where this process should run. When criteria are met, the process executes the associated action group. When criteria aren’t met, the process skips the action group and evaluates the criteria for the next action group. Remember that the process executes only one action group. We will add a target object to this process. This object will be where the process criteria will be defined, so for this example we will want to evaluate the process for the custom object we just installed called **Trip Requests**. With the power of the new Lightning Process Builder you are able to execute actions on objects related or unrelated to this original object.  We will be able to add actions later on to create or update other types of objects, but this step determines which specific object the process criteria(s) will be on. 
+承認プロセスは出来上がりましたが、このままではいつプロセスが動作すればよいかという条件がありませんん。 いつ条件を評価して、どのアクションをプロセスが実行すればよいでしょうか。または条件に合致しない場合、プロセスはアクションをスキップし、次の実行条件を評価しなければなりません。Remember that the process executes only one action group.
+ターゲットとなるオブジェクトをプロセスに追加します。このオブジェクトはプロセスの条件が評価される場所となります。この例ではインストールしたカスタムオブジェクトである**出張申請**を評価します。新しいLightning プロセスビルダーでは、元となるオブジェクトと関連する・しないに関わらず、オブジェクトに対してアクションを実行することが可能です。アクションはオブジェクトが作成もしくは更新されたタイミングで実行可能ですが、このステップではまずどのオブジェクトにどういった条件でアクションを動作するかを定義します。
 
 
 
+## 何を学ぶことができるか
+- プロセスの対象オブジェクトを定義する
+- いつ対象オブジェクトを評価すべきかを定義する
+- プロセスの条件を定義する
 
-## What you will learn
-- Define Process target object
-- Define when target object should be evaluated
-- Define Process criteria 
 
+## ステップ 1: オブジェクトの定義
 
-## Step 1: Define the Object
-
-1. In your new process screen, select **Add Object**. 
+1. プロセス画面において　**オブジェクトを追加** をクリックします。.
 ![](images/object1.jpg)
 
-2. All of our standard and custom objects are available to select, including the object just installed with the AppExchange package. We want to Select the **Trip Request** object. 
-3. Because we want to evaluate all elligible trip requests, even ones that were edited after creation, we select the option: 
-    - Start the process: **When a record is created or edited** 
-*If you’re familiar with workflow rules and you’re wondering what happened to the third option (“created, and any time it’s edited to subsequently meet criteria”), don’t worry! You’ll get to that setting when you add criteria nodes if you select “when a record is created or edited” here.*
-4. Leave the checkbox **Unchecked** 
+2. AppExchangeパッケージからインストールされたものも含め、全ての標準及びカスタムオブジェクトが選択可能です。ここでは**出張申請** オブジェクトを選択します。
+3. 全ての出張リクエストが適合するかどうかをテストしたいので、作成されるか編集されるかが行われた場合に条件をテストします:
+    - プロセスを開始: **レコードを作成または編集したとき**
+*もしあなたがワークフロールールに詳しい場合、3つめのプション(“作成されたとき、およびその後基準を満たすように編集されたとき”)はどうなったのか気になる所かもしれませんが, これは心配いりません。もし“レコードを作成または編集したとき*を選択した際に条件ノードで同様の設定を行う事が可能です。
+4. チェックボックスには **チェックを入れない**
 
-*Note: If you select yes, the process can evaluate the same record up to five additional times in a single transaction. It might reevaluate the record because a process, workflow rule, or flow updated the record in the same transaction.
-For example, your sales review process includes multiple steps, approvals, notifications, and fields that need to be updated. Some of these changes may be part of your process, or they may be managed by other workflow rules or flows in your organization. If you allow the Process Builder to reevaluate a record multiple times in a single transaction, you can manage and evaluate all of these changes—even changes from other processes—in a single transaction in your process.* 
-5. Select **Save**
+*注意: こちらを選択した場合, プロセスは同様のレコードを同一のトランザクション内で5 回まで評価します。プロセス、ワークフロールール、フローなどの更新によって、レコードが同一トランザクション上で更新されることで再評価される可能性があるからです。
+例えば、営業レビュープロセスには複数のステップがあり、承認、通知、およびフィールドの更新があるとします。これらの変更がプロセスの中や組織内の他のワークフロールールやフローで行われると可能性があります。プロセスビルダーに単一トランザクションでのレコードの再評価を許可すると、他のプロセスによる変更も含めた全ての変更を管理し評価することができます。*
+5. **保存** を選択します。
 ![](images/object2.jpg)
 
 
 
-## Step 2: Define the Criteria
-Now that we have determined *Where* the process will evaluate, we need to define *When* this process should run. Notice you have the ability to create multiple action paths based on True/False criteria. For this tutorial we will be creating one process path with immediate actions, but using the Lightning Process Builder you can create multiple different criteria as well as subsequent immediate and scheduled actions. 
+## ステップ 2: 条件の定義
+これで*どこで*プロセスが評価されるかを定義できましたが、*いつ* プロセスが実行されるかを定義する必要があります。True / False ベースの複数条件指定によって複数のアクションを作成できます。
+このチュートリアルでは１つの条件で即時アクションを実行しますが、Lightningプロセスビルダーでは複数の異なる条件を定義しつつ、即時実行とスケジュール実行のアクションを定義することも可能です。
 
-1. Select **Add Criteria** node in your Process Builder Screen 
-2. Define Criteria details
-     - Criteria Name: **New Trip** 
-*This name appears on the canvas to help you distinguish the criteria and its action group from the other criteria and action groups in the process.*
-     - Criteria for Executing Actions: **Filter Conditions Are Met**
-*You can define criteria using conditions with existing operators, formulas, or just execute the process actions without any criteria* 
-     - Filter Condition: `Trip_Request__c.Expected_Total_Cost__c` is Greater than $500 
-     - Filter Conditions: **All of the conditions are met**
-     - Check the **Yes** Checkbox to execute the actions only when specified changes are made. This means the actions are executed only if the record meets the criteria now but the values that the record had immediately before it was saved didn't meet criteria. This means that these actions won't be executed when irrelevant changes are made.
-3. Click **Save**
+
+1. プロセスビルダー画面の中の **条件を追加** ノードをクリックします
+2. 条件の詳細を定義します
+     - 条件名: **新規出張**
+*この名前は、プロセス内の他の条件及びアクショングループから識別するためにキャンバスに表示されます*
+     - アクションの実行条件: **絞り込み条件を満たしている**
+     *条件式は既存のフィルタや数式もしくは条件なしにプロセスアクションを実行することが可能です*
+     - 検索条件の設定: `Trip_Request__c.Expected_Total_Cost__c` >= $500
+     - 検索条件: **すべての条件に一致 (AND)**
+     - **レコードに指定の変更が行われた場合にのみアクションを実行しますか?** の **はい** のチェックボックスを**オン**にします。 *チェックボックスをオンにすると、アクションが所定の変更が行われた時のみ動作します。これはアクションが以前条件に適合しない状態で保存されており、その後条件に適合した瞬間にのみ動作するが、それ以外や関係の無い変更が行われた場合には、アクションは実行されないことを意味します。*
+3. **保存** をクリックします
 
 ![](images/object3.jpg)
 
@@ -53,13 +55,13 @@ Now that we have determined *Where* the process will evaluate, we need to define
 
 
 
-You have now defined when and where this process should run, now time to define what actions should execute!
+これでいつ及びどこでこのプロセスが動作すべきかを定義できました。これでどんな処理を実行すべきかを定義することができるようになりました。
 
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-apex-controller.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="create-contactlist-component.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="create-apex-controller.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="create-contactlist-component.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

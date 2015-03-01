@@ -1,31 +1,31 @@
 ---
 layout: module
-title: Module 6&#58; Activate the Process 
+title: モジュール 6&#58; プロセスの有効化
 ---
 
-Now that we have created this process, defined the criteria, and added our immediate process actions, it needs to be activated in order to evaluate new Trip Request records. 
-After you activate a process, you can no longer edit that process. However, you can click Clone to save the process as a new inactive process.
-You can’t activate a process unless it has:
+プロセスを作成し、条件を設定し、更に実行されるアクションも定義しましたが、この出張申請プロセスが実行されるには有効化を行う必要があります。
+プロセスの有効化が行われると、プロセスを編集を行うことができなくなります。ですが、プロセスを新しい無効状態のプロセスとしてコピーして保存することは可能ですう。
+プロセスは最低でも以下を持っていないと有効化できません:
 
-1. At least one defined criteria node
-2. At least one defined immediate or scheduled action
+1. 最低１つ以上の条件ノードの定義
+2. 最低１つ以上のルール適用時もしくはスケジュール済みアクションの定義
 
 
-##Activate The Process
+##プロセスの有効化
 
-1. In the upper right hand corner of your Process Builder screen, Click **Activate**.
+1. プロセスビルダー画面の右上隅にある **有効化** をクリックします。
 ![](images/activate1.jpg)
 
-2. You will see a warning regarding process activation, click **Ok**
-*If you activate a version of a process that already has an active version, the previously active version is automatically deactivated. To see that version later, refer to the process’s version history.*
+2. プロセス有効化に関すrう注意点を確認し、**Ok**　をクリックします。
+*もし既に有効化されたバージョンのプロセスがあるならば、過去の有効バージョンは自動的に無効化されます。あとでそのバージョンを確認するには、プロセスのバージョン履歴を参照して下さい*
 ![](images/activate2.jpg)
 
 
-If you later want Salesforce to stop using a process to evaluate records as they’re created or edited, open the active process and click Deactivate.
+もし後でSalesforce上でのレコード評価やデータ作成及び編集など、プロセスが動作するのを止めたい場合には、有効プロセスを開き、無効化をクリックします。
 
 
 
-Your process is now active! Time to test it out. 
+これでプロセスは有効化されました！テストを行いましょう。
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Module 1&#58; Developer Editionアカウントの作成
+title: モジュール 1&#58; Developer Editionアカウントの作成
 ---
 このモジュールでは、本ワークショップの演習を行うにための全ての機能が利用可能な、Salesforce Developer Editionアカウントの作成を行います。
 

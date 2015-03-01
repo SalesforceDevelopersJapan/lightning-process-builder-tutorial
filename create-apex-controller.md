@@ -3,13 +3,13 @@ layout: module
 title: モジュール 3&#58; 新しいLightning プロセスの作成
 ---
 
-We are going to begin building a process to manage trip approvals in this org. We have a number of business  requirements we would like to implement in this process. All trips over $500 should go through a specific process tied to that.
+出張申請のプロセスをこの組織に作成していきます。このプロセスを実装するにあたりいくつかのビジネス要件があります。全ての$500以上の出張は特別なプロセスを経る必要があります。
 
 ## プロセスのゴール
-- Trip request should be routed for approval
-- Trip details should be shared within the employee travel community to foster collaboration
-- Calendar of trip creator should be updated automatically
-- Available for mobile employees
+- 出張申請を承認プロセスへ回す
+- 出張の詳細は従業員出張コミュニティへ共有し、コラボレーションを推進する
+- 出張者のカレンダーを自動的に更新する
+- 従業員はモバイルから確認することができる
 
 
 ## 何を学ぶことができるか
@@ -18,14 +18,14 @@ We are going to begin building a process to manage trip approvals in this org. W
 
 ##新しいプロセスを作成:
 
-1. In the setup navigation bar to the left of your setup screen, navigate to **Build | Workflow&Approvals | Process Builder**
+1. 設定画面の左側のナビゲーションメニューより、**ビルド | 作成 | ワークフローと承認申請 | プロセスビルダー**　へアクセスします。
 
-2. Click on **Process Builder** and you will see the splash screen welcoming you to the Process Builder. Select **New** to begin building a new process.  
+2. **プロセスビルダー** をクリックすると、初回にはプロセスビルダー紹介のスプラッシュスクリーンが表示されます。 **新規** を選択して、プロセスの作成を開始します。  
   ![](images/process1.jpg)
 
-3. Name: **Trip Request Process**
-4. Hit **Tab** to automatically populate the API Name
-5. Description: **Process to manage new trip requests**
+3. 名前: **出張リクエストプロセス**
+4. API 参照名 : Trip_Request_Process
+5. 説明: **新規出張申請を管理するプロセス**
 
 6. **保存** をクリックします
   ![](images/process2.jpg)
@@ -34,7 +34,7 @@ We are going to begin building a process to manage trip approvals in this org. W
 
 
 
-You have just created a new Lightning Process! Now we need to define where and when this process should run.
+これで新しいLightningプロセスの作成が完了しました。次のステップで、いつ・どのタイミングでこのプロセスを動作させるかを定義する必要があります。
 
 
 
