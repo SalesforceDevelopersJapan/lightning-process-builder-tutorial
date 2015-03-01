@@ -1,48 +1,46 @@
 ---
 layout: home
-title: Salesforce Lightning Process Builder Tutorial
+title: Salesforce Lightning プロセスビルダーチュートリアル
 ---
-The Salesforce1 Lightning Process Builder is a new workflow tool that helps anyone in your company quickly and easily automate business processes such as employee onboarding, and new customer onboarding - all without writing a single line of code. Creating new processes through a point and click interface helps you avoid repetitive time-consuming tasks so you can do more and go faster. 
+Salesforce1 Lightning プロセスビルダーは、会社の誰もが素早く簡単に、例えば従業員の追加や顧客の対応などのビジネス・プロセスを、1行もコードを書くことなく自動化することができる新しいワークフローツールです。  新しいビジネスプロセスはポイント & クリックの直感的なインタフェースで作成でき、退屈で時間のかかる手順を踏まずに、より素早く物事お行える様になっています。
 
-In Spring '15 the Lightning Process Builder will be Generally Available in **Enterprise, Performance, Unlimited and Developer Edition** Salesforce Environments.
+Spring '15 リリースではLightning プロセスビルダーは**Enterprise, Performance, Unlimited 及び Developer Edition** のSalesforce環境で正式リリースとなりました。
 
 
-In this tutorial, you use the Lightning Process Builder to build process used to manage a trip approval business process. The process automates multiple notifications and calendar updates triggered by a trip request.
-The process uses an installed custom object with related action to automate a business process, all without a single line of code.
+このチュートリアルでは、Lightning プロセスビルダーを使って出張承認のビジネス・プロセスを作成します。プロセスは出張リクエストからのトリガにより自動的に複数の通知及びカレンダーの更新を行います。
+プロセスは一行もコードを書くことなく、関連するアクション及びインストール済みのカスタムオブジェクトを利用しています。
 ![](images/overview.jpg)
 
 
 
-## What You Will Learn
+## 何を学ぶことができるか
 
-- Install a private AppExchange package 
-- Create a custom lightning process
-- Automate a chatter post
-- Use the process builder to create and update an unrelated record
-- Activate a lightning process
-- Test the lightning process in a mobile environment
+- プライベートAppExchangeパッケージのインストール
+- Lightningプロセスの作成
+- Chatterポストの自動化
+- プロセスビルダーによる関連しないレコードの作成及び更新
+- Lightningプロセスの有効化
+- Lightningプロセスのモバイル環境でのテスト
 
 
 
-## Browser Requirements
+## ブラウザ要件
 
-The following browsers are supported when working with Salesforce:
+以下のブラウザがSalesforceの動作でサポートされています:
 
-  - Most recent version of Google Chrome
-  - Most recent version of Mozilla Firefox
-  - Most recent version of Safari
-  - Internet Explorer 7 or higher
-  - Additional browser support detailed <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=getstart_browser_overview.htm" target="_blank">here</a>
+- 最新バージョンのGoogle Chrome
+- 最新バージョンのMozilla Firefox
+- 最新バージョンのSafari
+- Internet Explorer 11 以降
+- それ以外のブラウザのサポートに関しては <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=getstart_browser_overview.htm" target="_blank">こちら</a> をご覧ください
 
-## Issues
+## 問題をみつけたら？
 
-- Please create an issue <a href="https://github.com/developerforce/lightning-process-builder-tutorial/issues" target="_blank">here</a> if you run
-into any problem or if you have a suggestion to improve this workshop.
-- You can also use the Comments section at the bottom of each module to ask a question or report a problem.
-
+-実際に動作をさせる過程で問題が発生した場合にはぜひIssue <a href="https://github.com/salesforcedevelopersjapan/lightning-process-builder-tutorial/issues" target="_blank">here</a>を作成してこのチュートリアルの品質改善にご協力下さい。
+- または下にあるコメントセクションにて、質問や問題の報告を行うことも可能です。
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-developer-edition.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="create-developer-edition.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

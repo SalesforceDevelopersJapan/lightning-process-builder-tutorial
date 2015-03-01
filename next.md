@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Next Steps
+title: 次のステップ
 ---
 
 Congratulations on completing this tutorial and building your first Lightning Process!
@@ -23,6 +23,6 @@ Here are a few things you can do next:
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="create-contactdetails-component.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="create-contactdetails-component.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
 </div>
 </div>
