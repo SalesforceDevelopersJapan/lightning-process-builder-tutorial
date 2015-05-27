@@ -17,7 +17,7 @@ title: モジュール 7&#58; モバイルでテスト
 1. もしSalesforce環境にログインしていなければ、Choromeブラウザでログインを行います。ブラウザのURLアドレスバーに入力を行います。
 2. /one/one.app を現在のSalesforceインスタンスのURLドメインの後ろに追加します。例えばDeveloper Editionがna15にある場合、ログインした際のURLは https://na15.salesforce.com/home/home.jsp　のようになっています。 Salesforce1モバイルアプリの画面を表示するには /home/home.jsp を /one/one.app に変更します。
 ![](images/url.jpg)
-Your screen will now show the Salesforce mobile view.
+このようにSalesforceのモバイル用の画面を見ることができます。
 ![](images/mobile1.jpg)
 
 
@@ -54,7 +54,7 @@ Your screen will now show the Salesforce mobile view.
 
 
 
-おめでとうございます! たった数分でSalesforceに一行もコードを書くことなく、複数のアクションを持ち、かつモバイルユーザ向けにテスト済みの Lightning プロセスを作成することができあｍした。
+おめでとうございます! たった数分でSalesforceに一行もコードを書くことなく、複数のアクションを持ち、かつモバイルユーザ向けにテスト済みの Lightning プロセスを作成することができました。
 
 
 
